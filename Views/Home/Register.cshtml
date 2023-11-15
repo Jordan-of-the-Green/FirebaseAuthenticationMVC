@@ -1,0 +1,38 @@
+﻿@model FirebaseAuthentication.Models.UserModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<hr />
+
+<div class="container">
+    <div class="container">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" type="text"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" type="password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+                <input type="submit" value="Create" class="container btn btn-primary" />
+        </form>
+    </div>
+</div>
+
+
+<div class="container signin">
+    <p>Already have an account?  <a asp-action="Index">Homepage</a>.</p>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
